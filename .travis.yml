@@ -12,7 +12,7 @@ before_script:
   - echo "no tests"
 
 script:
-  - docker --version # print the version for logging
+  - docker --version # print the version for log
   - docker-compose -f docker-compose-build.yaml build --parallel
   - docker tag udagram-api-feed icedevs001/udagram-api-feed:v1
   - docker tag udagram-api-user icedevs001/udagram-api-user:v1
