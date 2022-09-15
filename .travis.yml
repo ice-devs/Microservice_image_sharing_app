@@ -1,8 +1,3 @@
-#safelist
-branches:
-  only:
-   -master
-
 # Pre-testing installs
 install:
   - echo "nothing needs to be installed"
