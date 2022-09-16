@@ -32,6 +32,10 @@ postgres_dev/
 logfile
 set_env.sh
 set_env2.sh
+aws-secret.yaml
+env-configmap.yaml
+env-secret.yaml
+
 
 .DS_Store
 Thumbs.db
