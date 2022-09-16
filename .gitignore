@@ -32,9 +32,9 @@ postgres_dev/
 logfile
 set_env.sh
 set_env2.sh
-aws-secret.yaml
-env-configmap.yaml
-env-secret.yaml
+deployment/aws-secret.yaml
+deployment/env-configmap.yaml
+deployment/env-secret.yaml
 
 
 .DS_Store
