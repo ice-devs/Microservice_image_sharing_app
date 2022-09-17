@@ -16,9 +16,9 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: icedevs001/udagram-frontend:v3
+        image: icedevs001/udagram-frontend:v18
         ports:
-        - containerPort: 8080
+        - containerPort: 80
         resources:
           limits: 
             cpu: 500m
@@ -28,22 +28,22 @@ spec:
         # Define the environment variable
         - name: AWS_ACCESS_KEY_ID
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               name: ice-aws-secret
               key: aws_access_key_id
         - name: AWS_SECRET_ACCESS_KEY
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               name: ice-aws-secret
               key: aws_secret_access_key
         - name: POSTGRES_USERNAME
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               name: ice-pg-secret
               key: postgres_username
         - name: POSTGRES_PASSWORD
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               name: ice-pg-secret
               key: postgres_password
         - name: POSTGRES_HOST
@@ -91,7 +91,7 @@ metadata:
     run: frontend
 spec:
   ports:
-  - port: 8080
+  - port: 80
     protocol: TCP
   selector:
     run: frontend

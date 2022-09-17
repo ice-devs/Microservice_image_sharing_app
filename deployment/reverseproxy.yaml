@@ -15,7 +15,7 @@ spec:
         service: reverseproxy
     spec:
       containers:
-      - image: icedevs001/reverseproxy:v3
+      - image: icedevs001/reverseproxy:v18
         name: reverseproxy
         imagePullPolicy: Always          
         resources:
