@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: api-feed
-        image: icedevs001/udagram-api-feed:v2
+        image: icedevs001/udagram-api-feed:v3
         ports:
         - containerPort: 8080
         resources:
@@ -24,6 +24,63 @@ spec:
             cpu: 700m
           requests:
             cpu: 400m
+        env:
+        # Define the environment variable
+        - name: AWS_ACCESS_KEY_ID
+          valueFrom:
+            configMapKeyRef:
+              name: ice-aws-secret
+              key: aws_access_key_id
+        - name: AWS_SECRET_ACCESS_KEY
+          valueFrom:
+            configMapKeyRef:
+              name: ice-aws-secret
+              key: aws_secret_access_key
+        - name: POSTGRES_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: ice-pg-secret
+              key: postgres_username
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            configMapKeyRef:
+              name: ice-pg-secret
+              key: postgres_password
+        - name: POSTGRES_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: ice-configmap
+              key: postgres_host
+        - name: POSTGRES_DB
+          valueFrom:
+            configMapKeyRef:
+              name: ice-configmap
+              key: postgres_db
+        - name: AWS_BUCKET
+          valueFrom:
+            configMapKeyRef:
+              name: ice-configmap
+              key: aws_bucket
+        - name: AWS_REGION
+          valueFrom:
+            configMapKeyRef:
+              name: ice-configmap
+              key: aws_region
+        - name: AWS_PROFILE
+          valueFrom:
+            configMapKeyRef:
+              name: ice-configmap
+              key: aws_profile
+        - name: JWT_SECRET
+          valueFrom:
+            configMapKeyRef:
+              name: ice-configmap
+              key: jwt_secret
+        - name: URL
+          valueFrom:
+            configMapKeyRef:
+              name: ice-configmap
+              key: url
 
 ---
 apiVersion: v1
